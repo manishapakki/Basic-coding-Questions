@@ -1,0 +1,769 @@
+C# Solutions 
+
+****************************************************************************** 
+
+1.## Coding 1 
+
+i/p: array {3, 7, 1} 
+
+o/p: sort the array and fill in the missing numbers 
+
+  
+
+using System; 
+
+public class Program 
+
+{ 
+
+    public static void Main() 
+
+    { 
+
+        int[] numArr = { 1, 3, 7 }; 
+
+        Array.Sort(numArr); 
+
+        Console.WriteLine(string.Join(" ", numArr)); // 2, 3, 7 
+
+  
+
+        int start = numArr[0]; 
+
+        int end = numArr[numArr.Length - 1]; 
+
+        int[] newArray = new int[end - start + 1]; 
+
+  
+
+        for (int i = start; i <= end; i++) 
+
+        { 
+
+            newArray[i - start] = i; 
+
+        } 
+
+  
+
+        Console.Write(string.Join(" ", newArray)); 
+
+    } 
+
+} 
+
+****************************************************************************** 
+
+2.## Coding 2 
+
+i/p: Welcome Home 
+
+o/p: emocleW emoH 
+
+  
+
+  
+
+using System; 
+
+  
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string str= "Welcome Home"; 
+
+string[] newstr = str.Split(); 
+
+foreach(string s in newstr) 
+
+{ 
+
+char[] c = s.ToCharArray(); 
+
+Array.Reverse(c); 
+
+  
+
+Console.Write(string.Join("",c)); 
+
+  
+
+Console.Write(" "); 
+
+} 
+
+  
+
+} 
+
+} 
+
+  
+
+****************************************************************************** 
+
+## Coding 3 
+
+i/p: Home!@123 
+
+o/p:  
+
+characters - 4 
+
+vowels - 2 
+
+symbols - 2 
+
+numbers - 3 
+
+  
+
+  
+
+using System; 
+
+  
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string str = "Home!@123"; 
+
+//string str = "12abc34@#$d56&"; 
+
+int charcount=0; 
+
+int integerCount=0; 
+
+int specialCharCount=0; 
+
+for(int i=0; i<str.Length;i++) 
+
+{ 
+
+if((str[i] >='a' && str[i] <= 'z') || (str[i] >='A' && str[i] <= 'Z') ) 
+
+{ 
+
+charcount++; 
+
+ 
+
+} 
+
+else if (str[i] >= 47 && str[i] <=58) 
+
+{ 
+
+integerCount++; 
+
+ 
+
+} 
+
+else 
+
+{ 
+
+specialCharCount++; 
+
+} 
+
+ 
+
+} 
+
+Console.WriteLine("charcount :" +charcount); 
+
+Console.WriteLine("integerCount : " +integerCount); 
+
+Console.Write("specialCharCount : " +specialCharCount); 
+
+} 
+
+} 
+
+  
+
+****************************************************************************** 
+
+## Coding 4 
+
+i/p: F4L15GH1T4 
+
+o/p: extract numbers and check whether its palindrome or not 
+
+  
+
+  
+
+using System; 
+
+  
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string str= "F4L15GH1T4"; 
+
+//int[] intArray = new int[str.Length]; 
+
+string IntegerString = ""; 
+
+  
+
+for(int i=0; i<str.Length;i++) 
+
+{ 
+
+if (str[i] >= 48 && str[i] <=57) 
+
+{ 
+
+IntegerString += str[i] - '0';				 
+
+} 
+
+} 
+
+Console.WriteLine(IntegerString); 
+
+char[] ch =  IntegerString.ToCharArray(); 
+
+for(int i=0; i<IntegerString.Length/2;i++) 
+
+{ 
+
+if(ch[i] != ch [IntegerString.Length-i-1]) 
+
+{ 
+
+ 
+
+Console.Write(" not palindrome");	 
+
+break; 
+
+} 
+
+else 
+
+{ 
+
+Console.Write("palindrome"); 
+
+break; 
+
+} 
+
+} 
+
+//Console.Write("palindrome"); 
+
+} 
+
+} 
+
+  
+
+****************************************************************************** 
+
+## Coding 5 
+
+i/p: BR41I6G5H1T7 
+
+o/p: extract numbers and find its sum 
+
+  
+
+  
+
+using System; 
+
+  
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string str= "BR41I6G5H1T7"; 
+
+//int[] intArray = new int[str.Length]; 
+
+string IntegerString = ""; 
+
+  
+
+for(int i=0; i<str.Length;i++) 
+
+{ 
+
+if (str[i] >= 48 && str[i] <=57) 
+
+{ 
+
+IntegerString += str[i] - '0';				 
+
+} 
+
+} 
+
+Console.WriteLine(IntegerString); 
+
+char[] ch =  IntegerString.ToCharArray(); 
+
+  
+
+int sum =0; 
+
+for(int i=0; i<IntegerString.Length;i++) 
+
+{ 
+
+sum += ch[i]-'0'; 
+
+} 
+
+Console.WriteLine(sum); 
+
+} 
+
+} 
+
+  
+
+****************************************************************************** 
+
+## Coding 6 
+
+Take your name as input 
+
+Print all unique characters only (any order) 
+
+i/p: prasad 
+
+o/p: prsd 
+
+ using System; 
+
+using System.Collections.Generic; 
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string str= "manisha"; 
+
+char[] c = str.ToCharArray(); 
+
+Dictionary<char,int> dict = new Dictionary<char, int>(); 
+
+int count=0; 
+
+for(int i=0; i<c.Length;i++) 
+
+{ 
+
+if(dict.ContainsKey(c[i])) 
+
+{ 
+
+count++; 
+
+dict[c[i]]++; 
+
+} 
+
+else 
+
+{ 
+
+dict[c[i]]=1; 
+
+} 
+
+} 
+
+  
+
+foreach(var s in dict) 
+
+{ 
+
+if(s.Value==1) 
+
+{ 
+
+Console.WriteLine(s.Key + " : " + s.Value); 
+
+} 
+
+} 
+
+} 
+
+} 
+
+ 
+
+  
+
+****************************************************************************** 
+
+## Coding 7 
+
+i/p: 
+
+String str = "Thank You Have A Nice Day"; 
+
+String dummyValue = "#"; 
+
+int index = 4; 
+
+o/p: 5N3#4E1#4E3# 
+
+  
+
+i/p 
+
+String str = ""This is a sample input for program""; 
+
+String dummyValue = "*"; 
+
+int index = 3; 
+
+o/p: 4I2*1*5M5P3R5O 
+
+[logic - {length of word}{index of word, if index does not exist then dummyValue}]" 
+
+  
+
+  
+
+  
+
+using System; 
+
+using System.Collections.Generic; 
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string strin = "Thank You Have A Nice Day"; 
+
+string str=strin.ToUpper(); 
+
+String dummyValue = "#"; 
+
+int index = 4; 
+
+ 
+
+string[] strArr = str.Split(' ');	//> 5N3#4E1#4E3# 
+
+foreach(string s  in strArr) 
+
+{ 
+
+if(s.Length>=4) 
+
+{ 
+
+Console.Write(s.Length+"" +s[3]); 
+
+} 
+
+ 
+
+else 
+
+{ 
+
+Console.Write(s.Length+""+dummyValue); 
+
+} 
+
+ 
+
+} 
+
+  
+
+} 
+
+} 
+
+  
+
+****************************************************************************** 
+
+## Coding 8 
+
+input = "amazon" 
+
+Print character occurances 
+
+output 
+
+a=2,z=1,m=1,n=1,o=1 
+
+  
+
+using System; 
+
+using System.Collections.Generic; 
+
+  
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string str = "amazon"; 
+
+char[] ch = str.ToCharArray(); 
+
+Dictionary<char,int> count = new Dictionary<char,int>(); 
+
+foreach(var v in ch) 
+
+{ 
+
+if(count.ContainsKey(v)) 
+
+{count[v]++;} 
+
+else 
+
+{count[v] = 1;} 
+
+} 
+
+foreach(var word in count) 
+
+{ 
+
+Console.Write(word.Key+"="+word.Value+","); 
+
+} 
+
+} 
+
+} 
+
+****************************************************************************** 
+
+## Coding 9 
+
+There will be running number between 1 to 10 
+
+One of the unique number will be missing 
+
+Find the missing number 
+
+i/p:  {4,6,7,2,3,1,9,4,10,8,8,6,9} 
+
+o/p: 5 
+
+  
+
+  
+
+using System; 
+
+using System.Collections.Generic; 
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+int[] intArr = {4,6,7,2,3,1,9,4,10,8,8,6,9}; 
+
+Array.Sort(intArr); 
+
+Console.WriteLine(string.Join(" ",intArr)); 
+
+  
+
+HashSet<int> ints =new HashSet<int>(intArr); 
+
+Console.WriteLine(string.Join(" ",ints)); 
+
+ 
+
+for(int i=1; i<10;i++) 
+
+{ 
+
+//if(ints[i] != i) 
+
+if(!ints.Contains(i)) 
+
+{ 
+
+Console.WriteLine("missing number :"+i); 
+
+} 
+
+} 
+
+  
+
+} 
+
+} 
+
+  
+
+****************************************************************************** 
+
+  
+
+## Coding 10 
+
+Check Password strength 
+
+1. It contains at least one lowercase English character. 
+
+2. It contains at least one uppercase English character. 
+
+3. It contains at least one special character. The special characters are: !@#$%^&*()-+ 
+
+4. Its length is at least 8. 
+
+5. It contains at least one digit. 
+
+  
+
+using System; 
+
+using System.Collections.Generic; 
+
+public class Program 
+
+{ 
+
+public static void Main() 
+
+{ 
+
+string str = "HelloWorld@123", str3="Hello1"; 
+
+char[] c = str.ToCharArray(); 
+
+bool UpperCase=false; 
+
+bool Lowercase=false; 
+
+bool Number=false; 
+
+bool hasSpecialChar=false; 
+
+for(int i=0; i<str.Length;i++) 
+
+{ 
+
+if(str[i] >= 'A' && str[i] <='Z') 
+
+{ 
+
+UpperCase = true; 
+
+} 
+
+if(str[i] >= 'a' && str[i] <='z') 
+
+{ 
+
+Lowercase=true; 
+
+} 
+
+if(str[i] >= 48 && str[i] <= 57) 
+
+{ 
+
+Number = true; 
+
+} 
+
+ else if (!char.IsLetterOrDigit(c[i])) 
+
+            { 
+
+                hasSpecialChar = true; 
+
+            } 
+
+ 
+
+} 
+
+if(UpperCase && Lowercase && Number && hasSpecialChar) 
+
+{ 
+
+Console.Write("Password strength passed"); 
+
+} 
+
+else 
+
+{ 
+
+Console.Write("Password strength failed"); 
+
+} 
+
+} 
+
+} 
+
+  
+
+****************************************************************************** 
+
+****************************************************************************** 
+
+****************************************************************************** 
+
+ 
+
+ 
